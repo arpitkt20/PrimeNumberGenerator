@@ -1,0 +1,4 @@
+com\ubs\primegenerator\demo\service\PrimeGeneratorService.class
+com\ubs\primegenerator\demo\UbsAssignmentApplication.class
+com\ubs\primegenerator\demo\controller\PrimeGeneratorController.class
+com\ubs\primegenerator\demo\dto\PrimeDTO.class

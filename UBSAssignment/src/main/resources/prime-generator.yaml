@@ -1,0 +1,75 @@
+swagger: '2.0'
+info:
+  description: >
+    This API calculates and returns all the prime numbers up to an including a number provided
+  version: '1.0'
+  title: Prime Number Generator
+  contact:
+    name: Arpit Tiwari
+    email: arpitktiwari@gmail.com
+host: localhost:1992
+schemes:
+  - http
+paths:
+  '/primes/{number}':
+    get:
+      tags:
+        - Prime Number Generator
+      summary: Retrieves Prime Number's List
+      description: |
+        This operation retrieves Customer Information against MSISDN.
+      operationId: getPrimeNumbers
+      produces:
+        - application/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: number
+          in: path
+          description: Number till which prime number list needs to be generated
+          required: true
+          type: string
+      responses:
+        '200':
+          description: |
+            *OK* - Prime Number Listed was retrieved successfully.
+          schema:
+            $ref: '#/definitions/PrimeDTO'
+        '400':
+          description: >
+            *Bad Request* -  The server cannot process the request due to
+            malformed syntax. The response can be caused by missing mandatory
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  PrimeDTO:
+    type: object
+    properties:
+      number:
+        type: integer
+        description : |
+          Input number
+      primeNumbers:
+        type: array
+        items:
+          type: integer
+          
+  ErrorResponse:
+    type: object
+    properties:
+      timestamp:
+        type: string
+        format: date-time
+        description: timestamp of response
+      status:
+        type: integer
+        description: http error code status
+      path:
+        type: string
+        description: Request URI path
+      error:
+        type: string
+        description: Error Name
+      message:
+        type: string
+        description: Error Message
